@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: true, // if false then that means we have provided all the possible paths in 'paths' and that any other provided path will result in a 404 error page
+    fallback: "blocking", // if false then that means we have provided all the possible paths in 'paths' and that any other provided path will result in a 404 error page
     // if true, then the server will try to generate dynamically for the provided meetupId of the incoming request
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
